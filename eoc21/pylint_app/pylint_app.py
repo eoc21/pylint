@@ -151,7 +151,9 @@ class StaticCodeAnalyzerWidget(QWidget):
         ax.hist(input_df['pylint_score'], bins=10)
         ax.set_xlabel('Lint Score')
         ax.set_ylabel('Frequency')
-        ax.set_title('Pylint Score Distribution:'+self.author.text())
+        mean_score = round(input_df['pylint_score'].mean(), 2)
+        ax.set_title('Pylint Score Distribution:'+self.author.text()
+                     +", Avg Score:"+str(mean_score))
         self.canvas.draw()
         self.canvas.show()
 
